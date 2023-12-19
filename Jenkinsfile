@@ -130,7 +130,6 @@ spec:
       privileged: true
     tty: true
     command:
-    - cat
     - /bin/bash
     - -c
     - |
