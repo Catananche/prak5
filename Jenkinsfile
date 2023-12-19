@@ -59,7 +59,7 @@ spec:
                 container(name: 'jnlp', shell: '/bin/bash') {
                     echo 'Pulling new changes'
                     // Крок клонування репозиторію
-                    // TODO: ваш код з лабораторної № 4
+                    checkout scm
                 }
             }
         }
@@ -77,7 +77,8 @@ spec:
                 container(name: 'golang', shell: '/bin/bash') {
                     echo 'Testing the application'
                     // Виконання юніт-тестів.
-                    // TODO: ваш код з лабораторної № 4
+                    image 'golang:1.21.3'
+                    reuseNode true
                 }
             }
         }
@@ -103,6 +104,10 @@ spec:
                     // TODO: Підказка: bitnami/kubectl має доступну утиліту 'sed'
                     // TODO: Але ви можете використовувати будь-яке інше рішення (Kustomize, тощо)
                     // TODO: По-друге: використовуйте kubectl apply з контейнера kubectl щоб застосувати маніфести з директорії k8s
+                    sed -i 's/PRAK5/'"${DOCKER_IMAGE_NAME}"'/g; s/P5/'"${BUILD_NUMBER}"'/g' ./k8s/deployment.yaml
+                    kubectl apply -f ./k8s/
+
+
                 }
             }
         }
@@ -133,6 +138,8 @@ spec:
                 // TODO: За допомогою контейнера ubuntu встановіть `curl`
                 // TODO: Використайте curl, щоб зробити запит на http://labfive:80
                 // TODO: Можливо, вам доведеться почекати приблизно 10 секунд, поки все буде розгорнуто вперше
+                apt-get update && apt-get install -y curl
+                curl http:\\labfive:80
             }
         }
     }
