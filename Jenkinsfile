@@ -130,8 +130,11 @@ spec:
       privileged: true
     tty: true
     command:
-    - apt-get update && apt-get install -y curl
     - cat
+    - /bin/bash
+    - -c
+    - |
+      apt-get update && apt-get install -y curl
 """
                 }
             }
