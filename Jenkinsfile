@@ -127,7 +127,6 @@ spec:
   - name: ubuntu
     image: ubuntu:22.04
     tty: true
-    privileged: true
     command:
     - cat
 """
