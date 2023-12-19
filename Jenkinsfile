@@ -126,6 +126,8 @@ spec:
   - name: jnlp
   - name: ubuntu
     image: ubuntu:22.04
+    securityContext:
+      privileged: true
     tty: true
     command:
     - cat
