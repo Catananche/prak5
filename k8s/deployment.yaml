@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: labfive
-        image: prak5
+        image: PRAK5
         ports:
         - containerPort: 8080
