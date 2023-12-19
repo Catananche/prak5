@@ -77,8 +77,7 @@ spec:
                 container(name: 'golang', shell: '/bin/bash') {
                     echo 'Testing the application'
                     // Виконання юніт-тестів.
-                    image 'golang:1.21.3'
-                    reuseNode true
+                    sh 'go test ./...'
                 }
             }
         }
