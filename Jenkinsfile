@@ -104,8 +104,8 @@ spec:
                     // TODO: Підказка: bitnami/kubectl має доступну утиліту 'sed'
                     // TODO: Але ви можете використовувати будь-яке інше рішення (Kustomize, тощо)
                     // TODO: По-друге: використовуйте kubectl apply з контейнера kubectl щоб застосувати маніфести з директорії k8s
-                    sed -i 's/PRAK5/'"${DOCKER_IMAGE_NAME}"'/g; s/P5/'"${BUILD_NUMBER}"'/g' ./k8s/deployment.yaml
-                    kubectl apply -f ./k8s/
+                    sh "sed -i 's|{{PRAK5}}|${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}|g' k8s/deployment.yaml"
+                    sh "kubectl apply -f k8s/"
 
 
                 }
