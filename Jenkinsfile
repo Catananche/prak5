@@ -49,8 +49,8 @@ spec:
     environment {
         // Поміняйте APP_NAME на ваше імʼя та прізвище.
         // Поміняйте DOCKER_IMAGE_NAME по формату ваше імʼя аккаунту в Docker та імʼя образу
-        APP_NAME = 'your_app_name'
-        DOCKER_IMAGE_NAME = 'your_docker_hub_account/your_image_name'
+        APP_NAME = 'karina_bilous'
+        DOCKER_IMAGE_NAME = 'catananche/prak5'
     }
 
     stages {
